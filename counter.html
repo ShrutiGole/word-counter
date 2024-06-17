@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Counter</title>
+
+    <style>
+
+      body {
+        background-image: url('/home/fymsc19/javascript/A1Q3.jpg');
+        background-color: #C0C0C0;
+                background-repeat:no-repeat;
+                 background-size: cover;
+                 background-position: center;
+              font-family: Arial, sans-serif;
+        color:black;
+            }
+        form{
+                 margin-left:430px;
+                margin-right:430px;
+                margin-top:20px;
+                box-shadow:0px 0px 10px black;
+                border-width:40px;
+                border-radius:25px;
+                border-height:40px;
+                padding-top: 20px;
+          padding-right: 30px;
+          padding-bottom: 10px;
+          padding-left: 30px;
+                }
+
+      h1 {
+        text-align: center;
+      }
+      button {
+        background-color: grey; /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: darkgrey;
+      }
+      button:active {
+        background-color: black;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+      }
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+      
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+
+      textarea{
+        width: 90%;
+        height: 150px;
+        padding: 12px 20px;
+        background-color: white;
+        size:"40";
+      }
+    </style>
+  </head>
+<body>
+
+  <div class="col-12 pb-3"> 
+    <form action="{% url 'counter' %}"  method="POST"> {% csrf_token %} 
+      {% csrf_token %}
+      <div class="form-group">
+      <h1>Word Counter</h1>
+        <label for="text1">Paste you're text</label> 
+        <textarea class="form-control" placeholder="Paste you're text here to count word and character" 
+                   name="texttocount" id="text1" rows="8">{{text}}</textarea> 
+      </div> 
+      
+      <div class="form-group text-center"> 
+        <button type="submit" class="btn btn-primary w-25" >Run Counter</button> 
+      </div>
+
+      {% if i %} 
+      <div class="mb-2"> 
+        <div class="card-header"> 
+         <p class="m-0">{{word}} Word's in that text</p>  
+        </div> 
+      </div> 
+      {% endif %}    
+    </form>
+    <!-- ads section start-->
+    <div class="text-center"> 
+      <h3>This Project is presented by following <br></h3>
+      <table>
+        <tr>
+          <th>Sr.No</th>
+          <th>Name</th>
+          <th>Roll No.</th>
+        </tr>
+        <tr>
+          <td>1.</td>
+          <td>Shruti Gole</td>
+          <td>19</td>
+        </tr>
+        <tr>
+          <td>2.</td>
+          <td>Pooja Sonawane</td>
+          <td>50</td>
+        </tr>
+        <tr>
+          <td>3.</td>
+          <td>Nikhil Parab</td>
+          <td>38</td>
+        </tr>
+        <tr>
+          <td>4.</td>
+          <td>Payal Memane</td>
+          <td>35</td>
+        </tr>
+        <tr>
+          <td>5.</td>
+          <td>Pragati Lohote</td>
+          <td>32</td>
+        </tr>
+      </table>
+      </div>
+      <!-- ads section end -->
+        
+  </div>
+</body>
+</html>  
